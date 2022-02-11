@@ -5,6 +5,8 @@ function Listing(props) {
   let item = props.item.filter((value) =>{
     if(!value.error_messages) {
       return value;
+    } else {
+      console.log(value.error_messages);
     }
   })
 
