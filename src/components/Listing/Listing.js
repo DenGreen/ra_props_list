@@ -2,9 +2,13 @@ import React from "react";
 import "./main.css";
 
 function Listing(props) {
-  let arr = props.item.map(({listing_id, url, MainImage, title, currency_code, price, quantity, error_messages}) => {
-    if(!error_messages){
-      return(
+  let item = props.item.filter((value) =>{
+    if(!value.error_messages) {
+      return value;
+    }
+  })
+
+  let arr = item.map(({listing_id, url, MainImage, title, currency_code, price, quantity, error_messages}) => (
         <div className="item" key={listing_id}>
           <div className="item-image">
             <a href={url}>
@@ -18,10 +22,8 @@ function Listing(props) {
           </div>
         </div>
       )
-    } 
 
-    console.log(error_messages);
-  });
+  );
 
   return <div className="item-list">{arr}</div>;
 }
