@@ -7,6 +7,7 @@ function Listing(props) {
       return value;
     } else {
       console.log(value.error_messages);
+      return null;
     }
   })
 
